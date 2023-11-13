@@ -18,6 +18,8 @@ import java.util.List;
 
 @Component
 public class Bot extends TelegramLongPollingBot {
+    SendMessage sendMessage = new SendMessage();
+
     @Autowired
     CallbackReceiver callbackReceiver;
 
@@ -62,7 +64,6 @@ public class Bot extends TelegramLongPollingBot {
 
     @Override
     public void onUpdateReceived(Update update) {
-        SendMessage sendMessage = new SendMessage();
         if(update.hasCallbackQuery()){
             callbackReceiver.getCallBackQueryData(update);
             if(callbackReceiver.getData().equals("off")){
