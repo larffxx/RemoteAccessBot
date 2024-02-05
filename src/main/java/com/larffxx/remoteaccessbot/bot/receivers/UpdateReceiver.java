@@ -14,7 +14,7 @@ import java.util.List;
 public class UpdateReceiver {
     @Autowired
     private TextDataRepository textDataRepository;
-
+    private Update update;
     private Long id;
     private Message message;
     private User user;
@@ -39,9 +39,18 @@ public class UpdateReceiver {
     public User getUser(){
         return user;
     }
+
     public void saveData(String userName, String message){
         TextData textData = new TextData(userName, message);
         textDataRepository.save(textData);
+
     }
 
+    public Update getUpdate() {
+        return update;
+    }
+
+    public void setUpdate(Update update) {
+        this.update = update;
+    }
 }

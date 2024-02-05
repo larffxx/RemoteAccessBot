@@ -33,4 +33,9 @@ public class TextData {
     }
     public TextData(){}
 
+
+    @Override
+    public String toString() {
+        return userName + " " + text;
+    }
 }
