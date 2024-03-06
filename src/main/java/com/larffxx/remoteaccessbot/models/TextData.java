@@ -1,41 +1,31 @@
 package com.larffxx.remoteaccessbot.models;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import org.checkerframework.common.aliasing.qual.Unique;
 
 @Entity
+@Getter
+@Setter
+@NoArgsConstructor
 public class TextData {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    private Long pcId;
+
     private String userName, text;
-
-    public void setText(String text){
-        this.text = text;
-    }
-    public void setUserName(String userName){
-        this.userName = userName;
-    }
-    public String getUserName(){
-        return userName;
-    }
-    public String getText(){
-        return text;
-    }
-
-    public TextData(String userName, String text){
+    public TextData(String userName, String text ) {
         this.userName = userName;
         this.text = text;
     }
-    public TextData(){}
-
-
     @Override
     public String toString() {
         return userName + " " + text;
     }
+
 }
